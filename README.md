@@ -1,23 +1,22 @@
-## Creating Azure Virtual Machines for a CDH CLuster
+## Creating Azure Virtual Machines for a CDH Cluster
 This project contains a bunch of shell scripts and tools for working on Azure with Cloudera CDH. The Azure directory contains the Azure VM creation and attach storage script
 
-To begin with install Windows Azure cross platform cli tools https://github.com/WindowsAzure/azure-sdk-tools-xplat 
+To begin with install Windows Azure cross platform cli tools http://www.windowsazure.com/en-us/documentation/articles/xplat-cli/
 
 Windows Azure Command-Line Tools for Mac and Linux Both a windows and Mac installer is available. You can call you’re azure subscription from the shell. Once installed you need to associate the tool with the relevant subscription. 
 
 Go to https://manage.windowsazure.com and login to your subscription
 
-With the tools installed import the account settings
-
+With the tools installed import the account settings:
 
 ```
-$ azure account download
+azure account download
 ```
 
 This will start a browser and download .publishingsettings file
 
 ```
-$ azure account set <azuresubsctiptionname>
+azure account set <azuresubsctiptionname>
 ```
 
 It should be possible to create the Virtual Network associated with the subscription via the command line, however this proved to challenging. We therefore choose to do this directly from the Management Console.
@@ -33,9 +32,15 @@ The full network configuration can be imported from xml once created using the P
 Create a storage account for the new Affinity Group, where virtual machine disks are stored. The storage is akin Amazon Elastic Block Storage. The small Azure images contain insufficient storage to maintain the hdfs storage and therefore you must create additional disks.
 
 ```
-$ azure account storage create --affinity-group hadoop-AG hadoopstorage
+azure account storage create --affinity-group hadoop-AG hadoopstorage
 ```
 
-The VM Creation scripts are in the azure directory
+The VM Creation scripts are in the azure directory. At this stage it's worth cloning into the repo
+
+```
+git clone https://github.com/ndunnage/hadoop-tools.git
+cd hadoop-tools
+```
+
 
 
