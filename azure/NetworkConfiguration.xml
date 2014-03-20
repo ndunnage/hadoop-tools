@@ -1,0 +1,23 @@
+<NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+   <VirtualNetworkConfiguration>
+     <Dns>       
+<DnsServers>
+         <DnsServer name="cdh-hostname1" IPAddress="10.0.0.4" />
+          </DnsServers>
+     </Dns>
+     <VirtualNetworkSites>
+       <VirtualNetworkSite name="hadoop" AffinityGroup="hadoop-AG">
+         <AddressSpace>
+           <AddressPrefix>10.0.0.0/20</AddressPrefix>
+         </AddressSpace>
+         <DnsServersRef>
+           <DnsServerRef name="cdh-hostname1" />
+         </DnsServersRef>
+         <Subnets>           <Subnet name="Subnet-1">
+             <AddressPrefix>10.0.0.0/23</AddressPrefix>
+           </Subnet>
+         </Subnets>
+       </VirtualNetworkSite>
+     </VirtualNetworkSites>
+   </VirtualNetworkConfiguration>
+</NetworkConfiguration>
