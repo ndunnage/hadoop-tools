@@ -1,4 +1,4 @@
-## Creating Azure Virutal Machines for a CDH Cluster
+## Creating Azure Virtual Machines for a CDH CLuster
 This project contains a bunch of shell scripts and tools for working on Azure with Cloudera CDH. The Azure directory contains the Azure VM creation and attach storage script
 
 To begin with install Windows Azure cross platform cli tools https://github.com/WindowsAzure/azure-sdk-tools-xplat 
@@ -35,3 +35,7 @@ Create a storage account for the new Affinity Group, where virtual machine disks
 ```
 $ azure account storage create --affinity-group hadoop-AG hadoopstorage
 ```
+
+The VM Creation scripts are in the azure directory
+
+
