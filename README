@@ -1,4 +1,4 @@
-<h2>Creating Azure Virutal Machines for a CDH CLuster<h2>
+## Creating Azure Virutal Machines for a CDH CLuster
 This project contains a bunch of shell scripts and tools for working on Azure with Cloudera CDH
 The Azure directory contains the Azure VM creation and attach storage script
 
