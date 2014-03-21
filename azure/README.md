@@ -60,9 +60,9 @@ sudo vi /etc/bind/named.local.conf
 
 Copy these values in:
 
+```
 This is an internal only zone
 
-```
 zone "internal" {
         type master;
         file "/etc/bind/zones/db.internal";
@@ -83,7 +83,7 @@ vi  /etc/bind/db.empty
 
 Edit the file to add the A records of the hosts you created in host.txt
 
-,,,
+```
 @       IN      SOA     localhost. root.localhost. (
                               1         ; Serial
                          604800         ; Refresh
@@ -102,6 +102,7 @@ Similarly do the same for the reverse zone:
 cp /etc/bind/db.empty /etc/bind/zones/db.internal
 vi  /etc/bind/zones/db.0.0.10.in-addr.arpa
 ```
+
  Edit it to look like this:
 
 ```
@@ -128,3 +129,12 @@ nslookup cdh-hostname1
 ```
 hostname && hostname -f
 ```
+
+Assuming you've done this correctly you should now be ready to install the Cloudera Manager on the Admin machine
+
+```
+wget http://archive.cloudera.com/cm4/installer/latest/cloudera-manager-installer.bin
+chmod +x ./cloudera-manager-installer.bin
+sudo ./cloudera-manager-installer.bin
+```
+
