@@ -1,3 +1,4 @@
+#!/bin/bash
 # Run as hive user eg sudo -u hive
 # Sqoop import from <databasename>
 # The hive table gets automatically created in the Hive database

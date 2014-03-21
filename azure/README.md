@@ -45,6 +45,7 @@ With passwordless access you can now format and mount the storage using the addd
 ./adddisk.sh
 ``` 
 
+## Setup Internal DNS
 The next task is to configure DNS in order that each node has a fully qualified domain name. First setup bind on the admin server
 
 ```
