@@ -42,5 +42,6 @@ git clone https://github.com/ndunnage/hadoop-tools.git
 cd hadoop-tools
 ```
 
+You can test using the sample benchmark script. An example sqoop import is included setup to work with an Azure Database
 
 
