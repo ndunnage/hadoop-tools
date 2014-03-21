@@ -58,8 +58,11 @@ edit named.conf.local to add the zone files
 sudo vi /etc/bind/named.local.conf
 ```
 
+Copy these values in:
+
 This is an internal only zone
 
+```
 zone "internal" {
         type master;
         file "/etc/bind/zones/db.internal";
@@ -69,4 +72,59 @@ zone "0.0.10.in-addr.arpa" {
         type master;
         file "/etc/bind/zones/db.0.0.10.in-addr.arpa";
 };
+```
 
+You then need to edit each zone file to incorporate the list of hosts in the host.txt. The first entry is the admin server and acts as the name server.
+
+```
+cp /etc/bind/db.empty /etc/bind/zones/db.internal
+vi  /etc/bind/db.empty 
+```
+
+Edit the file to add the A records of the hosts you created in host.txt
+
+,,,
+@       IN      SOA     localhost. root.localhost. (
+                              1         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                          86400 )       ; Negative Cache TTL
+;
+@       IN      NS      ns.internal.
+ns      IN      A       10.0.0.4
+cdh-hostname1   IN      A       10.0.0.4
+```
+
+Similarly do the same for the reverse zone:
+
+```
+cp /etc/bind/db.empty /etc/bind/zones/db.internal
+vi  /etc/bind/zones/db.0.0.10.in-addr.arpa
+```
+ Edit it to look like this:
+
+```
+ $TTL    86400
+@       IN      SOA     localhost. root.localhost. (
+                              1         ; Serial
+                         604800         ; Refresh
+                          86400         ; Retry
+                        2419200         ; Expire
+                          86400 )       ; Negative Cache TTL
+;
+@       IN      NS      ns.internal.
+4   IN      PTR     cdh-hostname1.internal.
+```
+
+Once you've created you're zone files restart Bind and test using nslookup. You will need to ensure that each host is resoling using the nameserver and search on the internal domain. The resolv.sh script can deploy the changes. Run from the same directory as hosts.txt
+
+```
+sudo service bind9 restart
+nslookup cdh-hostname1
+```
+ A userful check is to run hostname on each of the nodes:
+
+```
+hostname && hostname -f
+```
