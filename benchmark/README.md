@@ -10,17 +10,17 @@ This creates 10 input files of 1GB Note the paths represent a Cloudera 5 parcels
 1. Write Test
 
 ```
-hadoop jar /opt/cloudera/parcels/CDH/lib/hadoop-hdfs/hadoop-hdfs-2.3.0-cdh5.0.1-tests.jar TestDFSIO -write -nrFiles 10 -fileSize 1000
+sudo -u hdfs hadoop jar /opt/cloudera/parcels/CDH/lib/hadoop-0.20-mapreduce/hadoop-test.jar TestDFSIO -write -nrFiles 10 -fileSize 1000
 ``` 
 
 2. Read Test
 
 ```
-hadoop jar /opt/cloudera/parcels/CDH/lib/hadoop-hdfs/hadoop-hdfs-2.3.0-cdh5.0.1-tests.jarTestDFSIO -read -nrFiles 10 -fileSize 1000
+sudo -u hdfs hadoop jar hadoop jar /opt/cloudera/parcels/CDH/lib/hadoop-0.20-mapreduce/hadoop-test.jar TestDFSIO -read -nrFiles 10 -fileSize 1000
 ``` 
 
 3. Clean everything up
 
 ```
-hadoop jar /opt/cloudera/parcels/CDH/lib/hadoop-hdfs/hadoop-hdfs-2.3.0-cdh5.0.1-tests.jar TestDFSIO -clean
-``` 
+sudo -u hdfs hadoop jar hadoop jar /opt/cloudera/parcels/CDH/lib/hadoop-0.20-mapreduce/hadoop-test.jar TestDFSIO -clean
+```
