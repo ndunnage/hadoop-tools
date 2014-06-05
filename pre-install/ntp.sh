@@ -2,7 +2,7 @@
 # ntp.sh
 # Transparent Huge Pages
 # set the command in /etc/rc.local
-for i in $(cat host.txt)
+for i in $(cat hosts.txt)
 do
 	ssh -t $i "bash -c \
 	'echo server prod-r01-m31.hadoop.local >> /etc/ntp.conf' && \
