@@ -1,6 +1,6 @@
 ## Pre-install scripts for Centos 6.x
 
-A selection of scripts for preparing Centos prior to cluster installation
+A selection of scripts for preparing Centos prior to cluster installation. These are targeted at physical hardware, however can be amended to work with Azure storage volumes
 
 The scripts use a for loop to execute against each host in hosts.txt
 
