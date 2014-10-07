@@ -5,10 +5,10 @@
 # check the user is added in hue and the client configuration is deployed
 set -x
  
-sudo -u hdfs dfs -mkdir /user/azureuser
-sudo -u hdfs dfs -chown azureuser:azureuser /user/azureuser
-hdfs dfs -rm -r /user/azureuser/teragen-output
-hdfs dfs -rm -r /user/azureuser/terasort-output
+sudo -u hdfs hadoop fs -mkdir /user/azureuser
+sudo -u hdfs hadoop fs -chown azureuser:azureuser /user/azureuser
+sudo hdfs hadoop fs -rm -r /user/azureuser/teragen-output
+sudo hdfs hadoop fs -rm -r /user/azureuser/terasort-output
  
 # 10GB =    100 000 000 lines
 #100GB =  1 000 000 000 lines
