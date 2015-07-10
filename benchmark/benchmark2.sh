@@ -1,5 +1,5 @@
 #!/bin/sh
-# Modifued benchmark
+# Modified benchmark script that times each benchmark run
 
 time hadoop jar /opt/cloudera/parcels/CDH/lib/hadoop-mapreduce/hadoop-mapreduce-examples.jar teragen -Ddfs.block.size=1073741824
 -Dmapred.map.tasks=1000 10000000000 $1  2>&1 | tee $1.out
