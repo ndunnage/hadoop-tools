@@ -1,7 +1,7 @@
 ## Benchmark Installation
 The benchmark script is a good first test to ensure the cluster is operable.
 
-1. Create the test user (change as appropriate to correct user name) in Hue ensuring the Create Home direcotry option is selected
+1. Create the test user (change as appropriate to correct user name) in Hue ensuring the Create Home directory option is selected
 
 2. Ensure the client configuration is deployed for the hdfs service using Cloudera Manager
 
