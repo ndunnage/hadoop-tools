@@ -1,6 +1,7 @@
 #!/bin/sh
 # sparker.sh
 # An example spark-submit script
+# first read in the variables set by Cloudera Manager
 
 . /etc/spark/conf/spark-env.sh
 
@@ -8,4 +9,4 @@
 --class com.mycloudera.twitterprocessor.TwitterProcessor \
 --deploy-mode client \
 --master spark//$SPARK_MASTER_IP:$SPARK_MASTER_PORT \
-/root/cloudera/TwitterProcessor-assembly-0.1-SNAPSHOT.jar 10
+/path/to/TwitterProcessor-assembly-0.1-SNAPSHOT.jar 10
